@@ -1,5 +1,7 @@
 using System;
+using System.IO;
 using System.Net;
+using System.Text;
 
 namespace WebApplication
 {
@@ -23,7 +25,16 @@ namespace WebApplication
 
         private static string OutputMessage()
         {
-            return $"Hello Tom - the time on the server is {TimeStamp.FormatDate(DateTime.Now)}.";
+            var outputMessage = $"Hello Tom - the time on the server is {TimeStamp.FormatDate(DateTime.Now)}.";
+            var htmlFormat = "" +
+                "<HTML>" +
+                    "<BODY>" +
+                        "<div style='color: darkslateblue'>" + 
+                            $"{outputMessage}" +
+                        "</div>" +
+                    "</BODY" + 
+                "</HTML>";
+            return htmlFormat;
         }
     }
 }
