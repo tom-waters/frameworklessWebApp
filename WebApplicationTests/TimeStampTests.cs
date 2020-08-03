@@ -16,13 +16,6 @@ namespace WebApplicationTests
             
             Assert.Equal("3:46 PM on 29 July 2020", formattedDateTime);
         }
-        
-        // [Theory]
-        // [InlineData(new DateTime(2020,07,29,15,46,37), "3:46 PM on 29 July 2020")]
-        // public void OutputMessageIsInCorrectFormat(DateTime dateTime, string expectedOutput)
-        // {
-        //     Assert.Equal("3:46 PM on 29 July 2020", expectedOutput);
-        // }
     }
 }
 

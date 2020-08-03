@@ -1966,6 +1966,9 @@
       "WebApplication/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Newtonsoft.Json": "9.0.1"
+        },
         "compile": {
           "bin/placeholder/WebApplication.dll": {}
         },
