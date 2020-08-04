@@ -8,17 +8,14 @@ namespace WebApplication
         
         public static string DisplayMessage(UserDatabase userDatabase)
         {
-            return $"Hello{DisplayUsersInString(userDatabase)} - the time on the server is {TimeStamp.FormatDate(DateTime.Now)}.";
+            return $"Hello {DisplayUsersInString(userDatabase)} - the time on the server is {TimeStamp.FormatDate(DateTime.Now)}.";
         }
 
         public static string DisplayUsersInString(UserDatabase userDatabase)
         {
-            var punctuation = "";
-            if (userDatabase.AllUsers.Count > 1)
-            {
-                punctuation = " & ";
-            }
-            return userDatabase.AllUsers.Aggregate("", (current, user) => current + $"{user}{punctuation}");
+            var output = "";
+            output += string.Join(" & ", userDatabase.AllUsers);
+            return output;
         }
 
         public static string DisplayListOfNames(UserDatabase userDatabase)
