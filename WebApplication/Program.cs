@@ -17,15 +17,16 @@ namespace WebApplication
     {
         public static Task Main(string[] args)
         {
-            var userDatabase = new UserDatabase();
             var server = new HttpServer().CreateServer();
             server.Start();
-            
             while (true)
             {
                 var context = server.GetContext();
                 Console.WriteLine($"{context.Request.HttpMethod} {context.Request.Url}");
-                var displayOutput = HttpRequests.HandleDatabaseChanges(context, userDatabase);
+                HttpRequestHandler.HandleHttpRequest(context);
+                
+                
+                var displayOutput = "sent";
                
                 var buffer = Encoding.UTF8.GetBytes(displayOutput);
                 context.Response.ContentLength64 = buffer.Length;
