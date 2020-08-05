@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -6,10 +7,15 @@ using System.Xml.Schema;
 
 namespace WebApplication
 {
-    public static class UserService
+    public class UserService
     {
-        public static IDatabase Database = new Database();
-        public static string GetRequest(HttpListenerContext context)
+        public IDatabase _database = new Database();
+
+        public List<User> GetUsers()
+        {
+            return _database.GetUsers();
+        }
+        public string GetRequest(HttpListenerContext context)
         {
             if (context.Request.Url.Segments.Last() == "users")
             {
@@ -21,7 +27,7 @@ namespace WebApplication
             }
         }
 
-        public static string PutRequest(HttpListenerContext context)
+        public string PutRequest(HttpListenerContext context)
         {
             
             if (context.Request.Url.ToString().Contains("="))
@@ -37,16 +43,16 @@ namespace WebApplication
             return "";
         }
 
-        public static void DeleteRequest(HttpListenerContext context)
+        public void DeleteRequest(HttpListenerContext context)
         {
             
         }
         
-        public static string AddUser(HttpListenerContext context)
+        public string AddUser(HttpListenerContext context)
         {
             // return JSON object on added user
             return "";
         }
-
+        
     }
 }

@@ -7020,19 +7020,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/tom.waters/.nuget/packages/": {}
+    "/Users/michael.pantalleresc/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/tom.waters/Programming/Katas/Frameworkless/WebApplicationTests/WebApplicationTests.csproj",
+      "projectUniqueName": "/Users/michael.pantalleresc/dev/frameworklessWebApp/WebApplicationTests/WebApplicationTests.csproj",
       "projectName": "WebApplicationTests",
-      "projectPath": "/Users/tom.waters/Programming/Katas/Frameworkless/WebApplicationTests/WebApplicationTests.csproj",
-      "packagesPath": "/Users/tom.waters/.nuget/packages/",
-      "outputPath": "/Users/tom.waters/Programming/Katas/Frameworkless/WebApplicationTests/obj/",
+      "projectPath": "/Users/michael.pantalleresc/dev/frameworklessWebApp/WebApplicationTests/WebApplicationTests.csproj",
+      "packagesPath": "/Users/michael.pantalleresc/.nuget/packages/",
+      "outputPath": "/Users/michael.pantalleresc/dev/frameworklessWebApp/WebApplicationTests/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/tom.waters/.nuget/NuGet/NuGet.Config"
+        "/Users/michael.pantalleresc/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -7043,8 +7043,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "/Users/tom.waters/Programming/Katas/Frameworkless/WebApplication/WebApplication.csproj": {
-              "projectPath": "/Users/tom.waters/Programming/Katas/Frameworkless/WebApplication/WebApplication.csproj"
+            "/Users/michael.pantalleresc/dev/frameworklessWebApp/WebApplication/WebApplication.csproj": {
+              "projectPath": "/Users/michael.pantalleresc/dev/frameworklessWebApp/WebApplication/WebApplication.csproj"
             }
           }
         }
@@ -7097,7 +7097,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.102/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.301/RuntimeIdentifierGraph.json"
       }
     }
   }

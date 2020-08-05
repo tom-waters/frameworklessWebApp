@@ -23,15 +23,15 @@ namespace WebApplication
             {
                 var context = server.GetContext();
                 Console.WriteLine($"{context.Request.HttpMethod} {context.Request.Url}");
-                HttpRequestHandler.HandleHttpRequest(context);
+                var response = HttpRequestHandler.HandleHttpRequest(context, new Controller());
+                var content = response.Content.ReadAsStringAsync().Result;
                 
                 
-                var displayOutput = "sent";
-               
-                var buffer = Encoding.UTF8.GetBytes(displayOutput);
+                var buffer = Encoding.UTF8.GetBytes(content);
                 context.Response.ContentLength64 = buffer.Length;
+                context.Response.StatusCode = (int) response.StatusCode;
                 context.Response.OutputStream.Write(buffer, 0, buffer.Length);
-                context.Response.Close();
+                //context.Response.Close();
             }
         }
     }

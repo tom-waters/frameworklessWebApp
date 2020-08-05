@@ -6,7 +6,12 @@ namespace WebApplication
     public class Database : IDatabase
     {
         private const string PowerUser = "Tom";
-        public List<User> AllUsers = new List<User> { new User(PowerUser)};
+        public List<User> AllUsers = new List<User>();
+
+        public Database()
+        {
+            AllUsers.Add(new User(PowerUser));
+        }
 
         public List<User> GetUsers()
         {
