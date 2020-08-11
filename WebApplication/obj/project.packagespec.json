@@ -1,10 +1,10 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "/Users/michael.pantalleresc/dev/frameworklessWebApp/WebApplication/WebApplication.csproj",
+    "projectUniqueName": "/Users/tom.waters/Programming/Katas/Frameworkless/WebApplication/WebApplication.csproj",
     "projectName": "WebApplication",
-    "projectPath": "/Users/michael.pantalleresc/dev/frameworklessWebApp/WebApplication/WebApplication.csproj",
-    "outputPath": "/Users/michael.pantalleresc/dev/frameworklessWebApp/WebApplication/obj/",
+    "projectPath": "/Users/tom.waters/Programming/Katas/Frameworkless/WebApplication/WebApplication.csproj",
+    "outputPath": "/Users/tom.waters/Programming/Katas/Frameworkless/WebApplication/obj/",
     "projectStyle": "PackageReference",
     "originalTargetFrameworks": [
       "netcoreapp3.1"
@@ -49,7 +49,7 @@
           "privateAssets": "all"
         }
       },
-      "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.301/RuntimeIdentifierGraph.json"
+      "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.102/RuntimeIdentifierGraph.json"
     }
   }
 }

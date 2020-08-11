@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace WebApplication
+namespace WebApplication.Data
 {
     public class Database : IDatabase
     {

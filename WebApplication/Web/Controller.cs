@@ -1,8 +1,10 @@
 using System.Net;
 using System.Net.Http;
+using Microsoft.VisualBasic;
 using Newtonsoft.Json;
+using WebApplication.Domain;
 
-namespace WebApplication
+namespace WebApplication.Web
 {
     public class Controller
     {
@@ -10,19 +12,24 @@ namespace WebApplication
         public HttpResponseMessage Get(string url)
         {
             var response = new HttpResponseMessage();
+            var users = userService.GetUsers();
+            
             if (url == "users")
             {
-                var users = userService.GetUsers();
-                        
                 var json = JsonConvert.SerializeObject(users);
-                var str = new StringContent(json);
-                response.Content = str;
-                response.StatusCode = HttpStatusCode.BadRequest;
-
+                var content = new StringContent(json);
+                response.Content = content;
+                response.StatusCode = HttpStatusCode.OK;
                 return response;
             }
-
-            return response;
+            else
+            {
+                var message = Output.DisplayMessage(users);
+                var content = new StringContent(message);
+                response.Content = content;
+                return response;
+            }
+            
         }
 
         public string Put(string url)

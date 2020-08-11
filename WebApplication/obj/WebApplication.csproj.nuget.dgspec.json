@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/michael.pantalleresc/dev/frameworklessWebApp/WebApplication/WebApplication.csproj": {}
+    "/Users/tom.waters/Programming/Katas/Frameworkless/WebApplication/WebApplication.csproj": {}
   },
   "projects": {
-    "/Users/michael.pantalleresc/dev/frameworklessWebApp/WebApplication/WebApplication.csproj": {
+    "/Users/tom.waters/Programming/Katas/Frameworkless/WebApplication/WebApplication.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/michael.pantalleresc/dev/frameworklessWebApp/WebApplication/WebApplication.csproj",
+        "projectUniqueName": "/Users/tom.waters/Programming/Katas/Frameworkless/WebApplication/WebApplication.csproj",
         "projectName": "WebApplication",
-        "projectPath": "/Users/michael.pantalleresc/dev/frameworklessWebApp/WebApplication/WebApplication.csproj",
-        "packagesPath": "/Users/michael.pantalleresc/.nuget/packages/",
-        "outputPath": "/Users/michael.pantalleresc/dev/frameworklessWebApp/WebApplication/obj/",
+        "projectPath": "/Users/tom.waters/Programming/Katas/Frameworkless/WebApplication/WebApplication.csproj",
+        "packagesPath": "/Users/tom.waters/.nuget/packages/",
+        "outputPath": "/Users/tom.waters/Programming/Katas/Frameworkless/WebApplication/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/michael.pantalleresc/.nuget/NuGet/NuGet.Config"
+          "/Users/tom.waters/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -59,7 +59,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.301/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.102/RuntimeIdentifierGraph.json"
         }
       }
     }

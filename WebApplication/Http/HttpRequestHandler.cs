@@ -1,11 +1,10 @@
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
-using Newtonsoft.Json;
+using Microsoft.AspNetCore.Mvc;
+using Controller = WebApplication.Web.Controller;
 
-namespace WebApplication
+namespace WebApplication.Http
 {
     public static class HttpRequestHandler
     {

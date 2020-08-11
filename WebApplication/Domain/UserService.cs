@@ -1,15 +1,13 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Web;
-using System.Xml.Schema;
+using WebApplication.Data;
 
-namespace WebApplication
+namespace WebApplication.Domain
 {
     public class UserService
     {
-        public IDatabase _database = new Database();
+        private IDatabase _database = new Database();
 
         public List<User> GetUsers()
         {
