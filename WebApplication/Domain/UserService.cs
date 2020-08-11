@@ -13,44 +13,20 @@ namespace WebApplication.Domain
         {
             return _database.GetUsers();
         }
-        public string GetRequest(HttpListenerContext context)
+        
+        public void AddUser(User user)
         {
-            if (context.Request.Url.Segments.Last() == "users")
-            {
-                return "JSON object of all users";
-            }
-            else
-            {
-                return "Greeting message";
-            }
+            _database.AddUser(user);
         }
 
-        public string PutRequest(HttpListenerContext context)
+        public void DeleteUser(User user)
         {
-            
-            if (context.Request.Url.ToString().Contains("="))
-            {
-                
-                return "201 and JSON object";
-            }
-            else
-            {
-                return "add name";
-            }
-            // return JSON object of updated user
-            return "";
+            _database.DeleteUser(user);
         }
 
-        public void DeleteRequest(HttpListenerContext context)
+        public void UpdateUser(User oldName, User newName)
         {
-            
+            _database.UpdateUser(oldName, newName.Name);
         }
-        
-        public string AddUser(HttpListenerContext context)
-        {
-            // return JSON object on added user
-            return "";
-        }
-        
     }
 }

@@ -1,5 +1,8 @@
+using System;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.VisualBasic;
 using Newtonsoft.Json;
 using WebApplication.Domain;
@@ -9,37 +12,64 @@ namespace WebApplication.Web
     public class Controller
     {
         UserService userService = new UserService();
-        public HttpResponseMessage Get(string url)
+        
+        public HttpResponseMessage GetUser()
+        {
+            var users = userService.GetUsers();
+            var message = Output.DisplayMessage(users);
+            return CreateResponseContent(message, "GET");
+        }
+        
+        public HttpResponseMessage GetUserList()
+        {
+            var users = userService.GetUsers();
+            var json = JsonConvert.SerializeObject(users);
+            return CreateResponseContent(json, "GET");
+        }
+        public HttpResponseMessage AddUser(User user)
+        {
+            userService.AddUser(user);
+            var json = JsonConvert.SerializeObject(user);
+            return CreateResponseContent(json, "PUT");
+        }
+        
+        public HttpResponseMessage DeleteUser(User user)
+        {
+            userService.DeleteUser(user);
+            var json = JsonConvert.SerializeObject(user);
+            return CreateResponseContent(json, "DELETE");
+        }
+
+        public HttpResponseMessage UpdateUser(User oldName, User newName)
+        {
+            userService.UpdateUser(oldName, newName);
+            var json = JsonConvert.SerializeObject(oldName);
+            Console.WriteLine("HIT post");
+            return CreateResponseContent(json, "POST");
+        }
+           
+        private HttpResponseMessage CreateResponseContent(string message, string httpMethod)
         {
             var response = new HttpResponseMessage();
-            var users = userService.GetUsers();
-            
-            if (url == "users")
-            {
-                var json = JsonConvert.SerializeObject(users);
-                var content = new StringContent(json);
-                response.Content = content;
-                response.StatusCode = HttpStatusCode.OK;
-                return response;
-            }
-            else
-            {
-                var message = Output.DisplayMessage(users);
-                var content = new StringContent(message);
-                response.Content = content;
-                return response;
-            }
-            
+            var content = new StringContent(message);
+            response.Content = content;
+            response.StatusCode = FetchStatusCode(httpMethod);
+            return response;
         }
 
-        public string Put(string url)
+        private HttpStatusCode FetchStatusCode(string httpMethod)
         {
-            return "";
+            switch (httpMethod)
+            {
+                case "PUT":
+                case "POST":
+                    return HttpStatusCode.Created;
+                default:
+                    return HttpStatusCode.OK;
+            }
         }
 
-        public string Delete(string url)
-        {
-            return "";
-        }
+
+
     }
 }

@@ -1,43 +1,37 @@
 using System.Collections.Generic;
 using System.Linq;
+using WebApplication.Domain;
 
 namespace WebApplication.Data
 {
     public class Database : IDatabase
     {
         private const string PowerUser = "Tom";
-        public List<User> AllUsers = new List<User>();
+        private List<User> _allUsers = new List<User>();
 
         public Database()
         {
-            AllUsers.Add(new User(PowerUser));
+            _allUsers.Add(new User(PowerUser));
         }
 
         public List<User> GetUsers()
         {
-            return AllUsers;
+            return _allUsers;
         }
         
-        public void AddUser(string user)
+        public void AddUser(User user)
         {
-            AllUsers.Add(new User(user.Trim('/')));
+            _allUsers.Add(user);
         }
 
-        public void UpdateUser(string oldName, string newName)
+        public void UpdateUser(User user, string newName)
         {
-            foreach (var user in AllUsers.Where(user => user.Name == oldName))
-            {
-                user.Name = newName;
-            }
+            var userUpdate = _allUsers.First(entry => entry == user).Name == newName;
         }
 
-        public void DeleteUser(string userName)
+        public void DeleteUser(User user)
         {
-            foreach (var user in AllUsers.Where( user => user.Name == userName))
-            {
-                AllUsers.Remove(user);
-            }
+            _allUsers.Remove(user);
         }
-        
     }
 }

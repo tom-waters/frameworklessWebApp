@@ -22,25 +22,5 @@ namespace WebApplication.Domain
             }
             return output;
         }
-
-        public static string DisplayListOfNames(Database database)
-        {
-            return database.AllUsers.Aggregate("Users on server: ", (current, user) => current + $"\n{user}");
-        }
-
-        public static string UserAlreadyExistsMessage(string user)
-        {
-            return $"{user} already exists";
-        }
-        
-        public static string UserAddedMessage(string user)
-        {
-            return $"{user} has been added";
-        }
-        
-        public static string UserDeletedMessage(string user)
-        {
-            return $"{user} has been deleted";
-        }
     }
 }

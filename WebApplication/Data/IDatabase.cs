@@ -1,13 +1,14 @@
 using System.Collections.Generic;
+using WebApplication.Domain;
 
 namespace WebApplication
 {
     public interface IDatabase
     {
         List<User> GetUsers();
-        void AddUser(string user);
-        void UpdateUser(string oldName, string newName);
-        void DeleteUser(string user);
+        void AddUser(User user);
+        void UpdateUser(User user, string newName);
+        void DeleteUser(User user);
 
     }
 }
