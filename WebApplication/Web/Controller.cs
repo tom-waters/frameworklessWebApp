@@ -14,7 +14,7 @@ namespace WebApplication.Web
     {
         private IDatabase _database = new Database();
         
-        public HttpResponseMessage GetUser()
+        public HttpResponseMessage GetUsers()
         {
             var users = _database.GetUsers();
             var message = Output.DisplayMessage(users);
@@ -24,29 +24,29 @@ namespace WebApplication.Web
         public HttpResponseMessage GetUserList()
         {
             var users = _database.GetUsers();
-            var json = JsonConvert.SerializeObject(users);
-            return CreateResponseContent(json, "GET");
+            var responseInJson = JsonConvert.SerializeObject(users);
+            return CreateResponseContent(responseInJson, "GET");
         }
         public HttpResponseMessage AddUser(User user)
         {
             _database.AddUser(user);
-            var json = JsonConvert.SerializeObject(user);
-            return CreateResponseContent(json, "PUT");
+            var responseInJson = JsonConvert.SerializeObject(user);
+            return CreateResponseContent(responseInJson, "PUT");
         }
         
         public HttpResponseMessage DeleteUser(User user)
         {
             _database.DeleteUser(user);
-            var json = JsonConvert.SerializeObject(user);
-            return CreateResponseContent(json, "DELETE");
+            var responseInJson = JsonConvert.SerializeObject(user);
+            return CreateResponseContent(responseInJson, "DELETE");
         }
 
         public HttpResponseMessage UpdateUser(User oldName, string newName)
         {
             _database.UpdateUser(oldName, newName);
-            var json = JsonConvert.SerializeObject(oldName);
+            var responseInJson = JsonConvert.SerializeObject(oldName);
             Console.WriteLine("HIT post");
-            return CreateResponseContent(json, "POST");
+            return CreateResponseContent(responseInJson, "POST");
         }
            
         private HttpResponseMessage CreateResponseContent(string message, string httpMethod)

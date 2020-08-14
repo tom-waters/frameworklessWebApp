@@ -103,6 +103,10 @@
               "target": "Package",
               "version": "[5.10.3, )"
             },
+            "FluentAssertions.Json": {
+              "target": "Package",
+              "version": "[5.5.0, )"
+            },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[16.2.0, )"

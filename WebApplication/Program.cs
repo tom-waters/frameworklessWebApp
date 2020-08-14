@@ -22,20 +22,20 @@ namespace WebApplication
         public static Task Main(string[] args)
         {
             var server = new HttpServer().CreateServer();
+            var controller = new Controller();
             server.Start();
             while (true)
             {
                 var context = server.GetContext();
                 Console.WriteLine($"{context.Request.HttpMethod} {context.Request.Url}");
-                
-                var response = HttpRequestHandler.HandleHttpRequest(context, new Controller());
+                var response = HttpRequestHandler.HandleHttpRequest(context, controller);
                 var content = response.Content.ReadAsStringAsync().Result;
                 var buffer = Encoding.UTF8.GetBytes(content);
                 context.Response.ContentLength64 = buffer.Length;
                 context.Response.StatusCode = (int) response.StatusCode;
                 context.Response.OutputStream.Write(buffer, 0, buffer.Length);
                 
-                //context.Response.Close();
+                context.Response.Close();
             }
         }
     }

@@ -7,6 +7,37 @@
     &lt;/TestAncestor&gt;
   &lt;/Or&gt;
 &lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=22a47f76_002D8ce8_002D4af7_002Dbad7_002Df2161e526d50/@EntryIndexedValue">&lt;SessionState ContinuousTestingIsOn="False" ContinuousTestingMode="0" FrameworkVersion="{x:Null}" IsLocked="False" Name="AddUsersShouldAddUserToDatabase" PlatformMonoPreference="{x:Null}" PlatformType="{x:Null}" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::FF11611E-998B-4B04-974E-36FB101C1575::.NETCoreApp,Version=v3.1::WebApplicationTests.DatabaseTests.AddUsersShouldAddUserToDatabase&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=25db00e5_002Dc16e_002D4e09_002Dad1a_002Da2d763645352/@EntryIndexedValue">&lt;SessionState ContinuousTestingIsOn="False" ContinuousTestingMode="0" FrameworkVersion="{x:Null}" IsLocked="False" Name="GetUsersReturnsTheCorrectResponseMessage #2" PlatformMonoPreference="{x:Null}" PlatformType="{x:Null}" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::FF11611E-998B-4B04-974E-36FB101C1575::.NETCoreApp,Version=v3.1::WebApplicationTests.ControllerTests.GetUsersReturnsTheCorrectResponseMessage&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=462bbf46_002D0076_002D412a_002Dbb69_002D351c6fc31b17/@EntryIndexedValue">&lt;SessionState ContinuousTestingIsOn="False" ContinuousTestingMode="0" FrameworkVersion="{x:Null}" IsLocked="False" Name="GetUsersReturnsTheCorrectResponseMessage" PlatformMonoPreference="{x:Null}" PlatformType="{x:Null}" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::FF11611E-998B-4B04-974E-36FB101C1575::.NETCoreApp,Version=v3.1::WebApplicationTests.ControllerTests.GetUsersReturnsTheCorrectResponseMessage&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=5cf6a169_002D261b_002D4d43_002Dab5e_002D0afb56d24647/@EntryIndexedValue">&lt;SessionState ContinuousTestingIsOn="False" ContinuousTestingMode="0" FrameworkVersion="{x:Null}" IsLocked="False" Name="GetUserListReturnsTheCorrectResponseMessage" PlatformMonoPreference="{x:Null}" PlatformType="{x:Null}" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::FF11611E-998B-4B04-974E-36FB101C1575::.NETCoreApp,Version=v3.1::WebApplicationTests.ControllerTests.GetUserListReturnsTheCorrectResponseMessage&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=88712b8a_002Dbd87_002D45f0_002Db56a_002D70947badc23f/@EntryIndexedValue">&lt;SessionState ContinuousTestingIsOn="False" ContinuousTestingMode="0" FrameworkVersion="{x:Null}" IsLocked="False" Name="GetUserListReturnsTheCorrectResponseMessage #3" PlatformMonoPreference="{x:Null}" PlatformType="{x:Null}" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::FF11611E-998B-4B04-974E-36FB101C1575::.NETCoreApp,Version=v3.1::WebApplicationTests.ControllerTests.GetUserListReturnsTheCorrectResponseMessage&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=af20fee4_002Df23f_002D4439_002Da4b9_002Dd86cce903a7d/@EntryIndexedValue">&lt;SessionState ContinuousTestingIsOn="False" ContinuousTestingMode="0" FrameworkVersion="{x:Null}" IsLocked="False" Name="GetUserListReturnsTheCorrectResponseMessage #2" PlatformMonoPreference="{x:Null}" PlatformType="{x:Null}" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::FF11611E-998B-4B04-974E-36FB101C1575::.NETCoreApp,Version=v3.1::WebApplicationTests.ControllerTests.GetUserListReturnsTheCorrectResponseMessage&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::FF11611E-998B-4B04-974E-36FB101C1575::.NETCoreApp,Version=v3.1::WebApplicationTests.ControllerTests.GetUsersReturnsTheCorrectResponseMessage&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=d223a055_002D4691_002D4c5d_002Da73f_002D603e5e3553ef/@EntryIndexedValue">&lt;SessionState ContinuousTestingIsOn="False" ContinuousTestingMode="0" FrameworkVersion="{x:Null}" IsLocked="False" Name="All tests from &amp;lt;WebApplicationTests&amp;gt;" PlatformMonoPreference="{x:Null}" PlatformType="{x:Null}" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"&gt;
   &lt;Project Location="/Users/tom.waters/Programming/Katas/Frameworkless/WebApplicationTests" Presentation="&amp;lt;WebApplicationTests&amp;gt;" /&gt;
 &lt;/SessionState&gt;</s:String>

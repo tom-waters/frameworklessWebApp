@@ -6,6 +6,7 @@ using System.Net.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using WebApplication.Domain;
+using WebApplication.Web;
 using Controller = WebApplication.Web.Controller;
 
 namespace WebApplication.Http
@@ -23,7 +24,7 @@ namespace WebApplication.Http
             {
                 case "GET":
                 {
-                    return resource == "users" ? controller.GetUserList() : controller.GetUser();
+                    return resource == "users" ? controller.GetUserList() : controller.GetUsers();
                 }
                 case "PUT":
                 {

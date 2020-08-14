@@ -7,7 +7,6 @@ namespace WebApplication.Domain
 {
     public class Output
     {
-        
         public static string DisplayMessage(List<User> users)
         {
             return $"Hello {DisplayUsersInString(users)} - the time on the server is {TimeStamp.FormatDate(DateTime.Now)}.";
@@ -16,9 +15,14 @@ namespace WebApplication.Domain
         private static string DisplayUsersInString(List<User> users)
         {
             var output = "";
-            foreach (var user in users)
+            var separator = "";
+            for (int i = 0; i < users.Count; i++)
             {
-                output += string.Join(" & ", user.Name);
+                if (i > 0)
+                {
+                    separator = " & ";
+                }
+                output += $"{separator}{users[i].Name}";
             }
             return output;
         }
