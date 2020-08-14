@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using WebApplication.Domain;
@@ -26,7 +27,7 @@ namespace WebApplication.Data
 
         public void UpdateUser(User user, string newName)
         {
-            var userUpdate = _allUsers.First(entry => entry == user).Name == newName;
+            _allUsers.First(entry => entry == user).Name = newName;
         }
 
         public void DeleteUser(User user)

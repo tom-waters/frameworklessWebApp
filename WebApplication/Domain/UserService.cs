@@ -5,6 +5,7 @@ using WebApplication.Data;
 
 namespace WebApplication.Domain
 {
+    // user service is not really doing anything here. have the controller call the database directly
     public class UserService
     {
         private IDatabase _database = new Database();

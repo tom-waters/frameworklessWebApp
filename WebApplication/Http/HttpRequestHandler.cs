@@ -31,7 +31,7 @@ namespace WebApplication.Http
                 } 
                 case "POST":
                 {
-                    return controller.UpdateUser(user, requestBody);
+                    return controller.UpdateUser(user, requestBody.Name);
                 }
                 case "DELETE":
                 {

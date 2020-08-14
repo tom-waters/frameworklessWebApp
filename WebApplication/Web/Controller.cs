@@ -5,44 +5,45 @@ using System.Net.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.VisualBasic;
 using Newtonsoft.Json;
+using WebApplication.Data;
 using WebApplication.Domain;
 
 namespace WebApplication.Web
 {
     public class Controller
     {
-        UserService userService = new UserService();
+        private IDatabase _database = new Database();
         
         public HttpResponseMessage GetUser()
         {
-            var users = userService.GetUsers();
+            var users = _database.GetUsers();
             var message = Output.DisplayMessage(users);
             return CreateResponseContent(message, "GET");
         }
         
         public HttpResponseMessage GetUserList()
         {
-            var users = userService.GetUsers();
+            var users = _database.GetUsers();
             var json = JsonConvert.SerializeObject(users);
             return CreateResponseContent(json, "GET");
         }
         public HttpResponseMessage AddUser(User user)
         {
-            userService.AddUser(user);
+            _database.AddUser(user);
             var json = JsonConvert.SerializeObject(user);
             return CreateResponseContent(json, "PUT");
         }
         
         public HttpResponseMessage DeleteUser(User user)
         {
-            userService.DeleteUser(user);
+            _database.DeleteUser(user);
             var json = JsonConvert.SerializeObject(user);
             return CreateResponseContent(json, "DELETE");
         }
 
-        public HttpResponseMessage UpdateUser(User oldName, User newName)
+        public HttpResponseMessage UpdateUser(User oldName, string newName)
         {
-            userService.UpdateUser(oldName, newName);
+            _database.UpdateUser(oldName, newName);
             var json = JsonConvert.SerializeObject(oldName);
             Console.WriteLine("HIT post");
             return CreateResponseContent(json, "POST");
