@@ -30,12 +30,9 @@ namespace WebApplication.Web
         
         public HttpResponseMessage AddUser(User user)
         {
-            var (success, response) = _database.AddUser(user);
+            var (success, content) = _database.AddUser(user);
             var responseInJson = JsonConvert.SerializeObject(user);
-            if (!success)
-            {
-                responseInJson = JsonConvert.SerializeObject(response);
-            }
+            responseInJson = ResponseVerification(success, responseInJson, content);
             return CreateResponseContent(success, responseInJson, "PUT");
         }
         
@@ -43,24 +40,28 @@ namespace WebApplication.Web
         {
             var (success, content) = _database.DeleteUser(user);
             var responseInJson = "";
-            if (!success)
-            {
-                responseInJson = JsonConvert.SerializeObject(content);
-            }
+            responseInJson = ResponseVerification(success, responseInJson, content);
             return CreateResponseContent(success, responseInJson, "DELETE");
         }
 
         public HttpResponseMessage UpdateUser(User oldName, string newName)
         {
-            var (success, response) = _database.UpdateUser(oldName, newName);
+            var (success, content) = _database.UpdateUser(oldName, newName);
             var responseInJson = JsonConvert.SerializeObject(oldName);
-            if (!success)
-            {
-                responseInJson = JsonConvert.SerializeObject(response);
-            }
+            responseInJson = ResponseVerification(success, responseInJson, content);
             return CreateResponseContent(success, responseInJson, "POST");
         }
-           
+
+        private static string ResponseVerification(bool success, string responseInJson, string content)
+        {
+            if (!success)
+            {
+                responseInJson = JsonConvert.SerializeObject(content);
+            }
+
+            return responseInJson;
+        }
+
         private HttpResponseMessage CreateResponseContent(bool success, string message, string httpMethod)
         {
             var response = new HttpResponseMessage();
