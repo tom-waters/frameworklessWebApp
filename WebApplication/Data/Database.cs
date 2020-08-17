@@ -20,19 +20,35 @@ namespace WebApplication.Data
             return _allUsers;
         }
         
-        public void AddUser(User user)
+        public Tuple<bool, string> AddUser(User user)
         {
-            _allUsers.Add(user);
+            var matchingEntries = _allUsers.Any(entry => entry.Name == user.Name);
+            if (!matchingEntries)
+            {
+                _allUsers.Add(user);
+                return new Tuple<bool, string>(true, "User added");
+            }
+            return new Tuple<bool, string>(false, "User already exists");
         }
 
-        public void UpdateUser(User user, string newName)
+        public Tuple<bool, string> UpdateUser(User user, string newName)
         {
-            _allUsers.First(entry => entry == user).Name = newName;
+            if (_allUsers.Contains(user))
+            {
+                _allUsers.First(entry => entry == user).Name = newName;
+                return new Tuple<bool, string>(true, "User updates");
+            }
+            return new Tuple<bool, string>(false, "User doesn't exist");
         }
 
-        public void DeleteUser(User user)
+        public Tuple<bool, string> DeleteUser(User user)
         {
-            _allUsers.Remove(user);
+            if (user.Name != PowerUser && _allUsers.Contains(user))
+            {
+                _allUsers.Remove(user);
+                return new Tuple<bool, string>(true, "User deleted");
+            }
+            return new Tuple<bool, string>(false, "User doesn't exist");
         }
     }
 }

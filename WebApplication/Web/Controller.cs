@@ -18,59 +18,70 @@ namespace WebApplication.Web
         {
             var users = _database.GetUsers();
             var message = Output.DisplayMessage(users);
-            return CreateResponseContent(message, "GET");
+            return CreateResponseContent(false, message, "GET");
         }
         
         public HttpResponseMessage GetUserList()
         {
             var users = _database.GetUsers();
             var responseInJson = JsonConvert.SerializeObject(users);
-            return CreateResponseContent(responseInJson, "GET");
+            return CreateResponseContent(false, responseInJson, "GET");
         }
+        
         public HttpResponseMessage AddUser(User user)
         {
-            _database.AddUser(user);
+            var (success, response) = _database.AddUser(user);
             var responseInJson = JsonConvert.SerializeObject(user);
-            return CreateResponseContent(responseInJson, "PUT");
+            if (!success)
+            {
+                responseInJson = JsonConvert.SerializeObject(response);
+            }
+            return CreateResponseContent(success, responseInJson, "PUT");
         }
         
         public HttpResponseMessage DeleteUser(User user)
         {
-            _database.DeleteUser(user);
-            var responseInJson = JsonConvert.SerializeObject(user);
-            return CreateResponseContent(responseInJson, "DELETE");
+            var (success, content) = _database.DeleteUser(user);
+            var responseInJson = "";
+            if (!success)
+            {
+                responseInJson = JsonConvert.SerializeObject(content);
+            }
+            return CreateResponseContent(success, responseInJson, "DELETE");
         }
 
         public HttpResponseMessage UpdateUser(User oldName, string newName)
         {
-            _database.UpdateUser(oldName, newName);
+            var (success, response) = _database.UpdateUser(oldName, newName);
             var responseInJson = JsonConvert.SerializeObject(oldName);
-            Console.WriteLine("HIT post");
-            return CreateResponseContent(responseInJson, "POST");
+            if (!success)
+            {
+                responseInJson = JsonConvert.SerializeObject(response);
+            }
+            return CreateResponseContent(success, responseInJson, "POST");
         }
            
-        private HttpResponseMessage CreateResponseContent(string message, string httpMethod)
+        private HttpResponseMessage CreateResponseContent(bool success, string message, string httpMethod)
         {
             var response = new HttpResponseMessage();
             var content = new StringContent(message);
             response.Content = content;
-            response.StatusCode = FetchStatusCode(httpMethod);
+            response.StatusCode = FetchStatusCode(httpMethod, success);
             return response;
         }
 
-        private HttpStatusCode FetchStatusCode(string httpMethod)
+        private HttpStatusCode FetchStatusCode(string httpMethod, bool success)
         {
-            switch (httpMethod)
+            return (httpMethod, success) switch
             {
-                case "PUT":
-                case "POST":
-                    return HttpStatusCode.Created;
-                default:
-                    return HttpStatusCode.OK;
-            }
+                ("PUT", true) => HttpStatusCode.Created,
+                ("PUT", false) => HttpStatusCode.BadRequest,
+                ("POST", true) => HttpStatusCode.OK,
+                ("POST", false) => HttpStatusCode.BadRequest,
+                ("DELETE", true) => HttpStatusCode.NoContent,
+                ("DELETE", false) => HttpStatusCode.BadRequest,
+                _ => HttpStatusCode.OK
+            };
         }
-
-
-
     }
 }

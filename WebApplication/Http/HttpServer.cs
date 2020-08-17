@@ -1,6 +1,6 @@
 using System.Net;
 
-namespace WebApplication
+namespace WebApplication.Http
 {
     public class HttpServer : IHttpServer
     {

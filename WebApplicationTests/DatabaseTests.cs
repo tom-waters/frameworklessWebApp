@@ -35,12 +35,37 @@ namespace WebApplicationTests
 
             users.Should().ContainEquivalentOf(powerUser);
         }
-        
+          
+        [Fact]
+        public void ShouldNotBeAbleToDeletePowerUserFromDatabase()
+        {
+            var users = _database.GetUsers();
+            _database.DeleteUser(users[0]);
+            
+            var expectedPowerUser = new User("Tom");
+            
+            users.Should().ContainEquivalentOf(expectedPowerUser);
+            users.Should().HaveCount(1);
+        }
+       
         [Fact]
         public void AddUsersShouldAddUserToDatabase()
         {
             var newUser = new User("Janet");
             _database.AddUser(newUser);
+            var users = _database.GetUsers();
+
+            users.Should().ContainEquivalentOf(newUser);
+            users.Should().HaveCount(2);
+        }
+        
+        [Fact]
+        public void AddUsersShouldNotAddExistingUserToDatabase()
+        {
+            var newUser = new User("Janet");
+            _database.AddUser(newUser);
+            var secondNewUser = new User("Janet");
+            _database.AddUser(secondNewUser);
             var users = _database.GetUsers();
 
             users.Should().ContainEquivalentOf(newUser);
@@ -79,7 +104,7 @@ namespace WebApplicationTests
             users.Should().BeEquivalentTo(expectedUsers);
             users.Should().HaveCount(1);
         }
-
+        
         [Fact]
         public void UpdateUserShouldChangeTheUsersName()
         {
@@ -91,7 +116,19 @@ namespace WebApplicationTests
             var updatedUser = new User("Ted");
 
             users.Should().ContainEquivalentOf(updatedUser);
+        }
 
+        [Fact]
+        public void UpdateUserShouldOnlyChangeExistingUsers()
+        {
+            var newUser = new User("James");
+            _database.AddUser(newUser);
+            _database.UpdateUser(new User("Chris"), "Ted");
+            
+            var users = _database.GetUsers();
+            var expectedUsers = new List<User>() {new User("Tom"), new User("James")};
+
+            users.Should().BeEquivalentTo(expectedUsers);
         }
     }
 }

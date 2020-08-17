@@ -16,40 +16,111 @@ namespace WebApplicationTests
 {
     public class ControllerTests
     {
-      
-        [Fact]
-        public void GetUsersReturnsTheCorrectResponseMessage()
-        {
-            var controller = new Controller();
-            var users = controller.GetUsers();
-            users.Should().BeEquivalentTo("Tom");
-        }
-
         [Fact]
         public void GetUserListReturnsTheCorrectResponseMessage()
         {
             var controller = new Controller();
-            var users = controller.GetUserList();
-            
-            
-            var response = new HttpResponseMessage();
-            var responseInJson = JsonConvert.SerializeObject(users);
-            var content = new StringContent(responseInJson);
-            
-            response.Content = content;
-            response.StatusCode = HttpStatusCode.OK;
-            
-            JToken expectedResponse = JToken.Parse(@"{ ""Name"": ""Tom""}");
-          
+            var responseMessage = controller.GetUserList();
+            var responseBodyContent = responseMessage.Content.ReadAsStringAsync();
 
+            var expectedResponseCode = HttpStatusCode.OK;
+            var expectedBodyContent = @"[{""Name"":""Tom""}]";
+
+            responseMessage.StatusCode.Should().Be(expectedResponseCode);
+            responseBodyContent.Result.Should().Be(expectedBodyContent);
         }
         
-        private static User FetchRequestBody(HttpListenerContext context)
+        [Fact]
+        public void AddUserReturnsCorrectResponseMessage()
         {
-            Stream stream = context.Request.InputStream;
-            StreamReader streamReader = new StreamReader(stream);
-            JsonSerializer serializer = new JsonSerializer();
-            return (User) serializer.Deserialize(streamReader, typeof(User));
+            var controller = new Controller();
+            var newUser = new User("Mary");
+            var responseMessage = controller.AddUser(newUser);
+            var responseBodyContent = responseMessage.Content.ReadAsStringAsync();
+
+            var expectedResponseCode = HttpStatusCode.Created;
+            var expectedBodyContent = @"{""Name"":""Mary""}";
+
+            responseMessage.StatusCode.Should().Be(expectedResponseCode);
+            responseBodyContent.Result.Should().Be(expectedBodyContent);
+        }
+        
+        [Fact]
+        public void AddUserFailureReturnsCorrectResponseMessage()
+        {
+            var controller = new Controller();
+            var newUser = new User("Mary");
+            controller.AddUser(newUser);
+            var responseMessage = controller.AddUser(newUser);
+            var responseBodyContent = responseMessage.Content.ReadAsStringAsync();
+
+            var expectedResponseCode = HttpStatusCode.BadRequest;
+            var expectedBodyContent = @"""User already exists""";
+
+            responseMessage.StatusCode.Should().Be(expectedResponseCode);
+            responseBodyContent.Result.Should().Be(expectedBodyContent);
+        }
+
+        [Fact]
+        public void DeleteUserReturnsCorrectResponseMessage()
+        {
+            var controller = new Controller();
+            var newUser = new User("Mary");
+            controller.AddUser(newUser);
+            var responseMessage = controller.DeleteUser(newUser);
+            var responseBodyContent = responseMessage.Content.ReadAsStringAsync();
+
+            var expectedResponseCode = HttpStatusCode.NoContent;
+            var expectedBodyContent = @"";
+
+            responseMessage.StatusCode.Should().Be(expectedResponseCode);
+            responseBodyContent.Result.Should().Be(expectedBodyContent);
+        }
+        
+        [Fact]
+        public void DeleteUserFailureReturnsCorrectResponseMessage()
+        {
+            var controller = new Controller();
+            var responseMessage = controller.DeleteUser(new User("Mary"));
+            var responseBodyContent = responseMessage.Content.ReadAsStringAsync();
+
+            var expectedResponseCode = HttpStatusCode.BadRequest;
+            var expectedBodyContent = @"""User doesn't exist""";
+
+            responseMessage.StatusCode.Should().Be(expectedResponseCode);
+            responseBodyContent.Result.Should().Be(expectedBodyContent);
+        }
+
+        [Fact]
+        public void UpdateUserReturnsCorrectResponseMessage()
+        {
+            var controller = new Controller();
+            var userToUpdate = new User("Mary");
+            controller.AddUser(userToUpdate);
+            var responseMessage = controller.UpdateUser(userToUpdate, "Ted");
+            var responseBodyContent = responseMessage.Content.ReadAsStringAsync();
+
+            var expectedResponseCode = HttpStatusCode.OK;
+            var expectedBodyContent = @"{""Name"":""Ted""}";
+
+            responseMessage.StatusCode.Should().Be(expectedResponseCode);
+            responseBodyContent.Result.Should().Be(expectedBodyContent);
+        }
+        
+        [Fact]
+        public void UpdateUserFailureReturnsCorrectResponseMessage()
+        {
+            var controller = new Controller();
+            var userToUpdate = new User("Mary");
+            controller.AddUser(userToUpdate);
+            var responseMessage = controller.UpdateUser(new User("James"), "Ted");
+            var responseBodyContent = responseMessage.Content.ReadAsStringAsync();
+
+            var expectedResponseCode = HttpStatusCode.BadRequest;
+            var expectedBodyContent = @"""User doesn't exist""";;
+
+            responseMessage.StatusCode.Should().Be(expectedResponseCode);
+            responseBodyContent.Result.Should().Be(expectedBodyContent);
         }
         
         

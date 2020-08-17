@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using WebApplication.Domain;
 
@@ -6,9 +7,9 @@ namespace WebApplication
     public interface IDatabase
     {
         List<User> GetUsers();
-        void AddUser(User user);
-        void UpdateUser(User user, string newName);
-        void DeleteUser(User user);
+        Tuple<bool, string> AddUser(User user);
+        Tuple<bool, string> UpdateUser(User user, string newName);
+        Tuple<bool, string>  DeleteUser(User user);
 
     }
 }
