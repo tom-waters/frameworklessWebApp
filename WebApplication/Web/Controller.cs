@@ -47,7 +47,7 @@ namespace WebApplication.Web
         public HttpResponseMessage UpdateUser(User oldName, string newName)
         {
             var (success, content) = _database.UpdateUser(oldName, newName);
-            var responseInJson = JsonConvert.SerializeObject(oldName);
+            var responseInJson = JsonConvert.SerializeObject(new User(newName));
             responseInJson = ResponseVerification(success, responseInJson, content);
             return CreateResponseContent(success, responseInJson, "POST");
         }

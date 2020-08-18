@@ -31,7 +31,7 @@ namespace WebApplicationTests
         public void NewDatabaseShouldContainPowerUser()
         {
             var users = _database.GetUsers();
-            var powerUser = new User("Tom");
+            var powerUser = new User("tom");
 
             users.Should().ContainEquivalentOf(powerUser);
         }
@@ -42,7 +42,7 @@ namespace WebApplicationTests
             var users = _database.GetUsers();
             _database.DeleteUser(users[0]);
             
-            var expectedPowerUser = new User("Tom");
+            var expectedPowerUser = new User("tom");
             
             users.Should().ContainEquivalentOf(expectedPowerUser);
             users.Should().HaveCount(1);
@@ -82,7 +82,7 @@ namespace WebApplicationTests
 
             var expectedUsers = new List<User>()
             {
-                new User("Tom"),
+                new User("tom"),
                 new User("Janet"),
                 new User("Jill")
             };
@@ -94,12 +94,12 @@ namespace WebApplicationTests
         [Fact]
         public void DeleteUserShouldRemoveUserFromDatabase()
         {
-            var newUser = new User("Janet");
+            var newUser = new User("mary");
             _database.AddUser(newUser);
             _database.DeleteUser(newUser);
             
             var users = _database.GetUsers();
-            var expectedUsers = new List<User>() {new User("Tom")};
+            var expectedUsers = new List<User>() {new User("tom")};
 
             users.Should().BeEquivalentTo(expectedUsers);
             users.Should().HaveCount(1);
@@ -126,7 +126,7 @@ namespace WebApplicationTests
             _database.UpdateUser(new User("Chris"), "Ted");
             
             var users = _database.GetUsers();
-            var expectedUsers = new List<User>() {new User("Tom"), new User("James")};
+            var expectedUsers = new List<User>() {new User("tom"), new User("James")};
 
             users.Should().BeEquivalentTo(expectedUsers);
         }

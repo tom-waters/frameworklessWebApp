@@ -24,7 +24,7 @@ namespace WebApplicationTests
             var responseBodyContent = responseMessage.Content.ReadAsStringAsync();
 
             var expectedResponseCode = HttpStatusCode.OK;
-            var expectedBodyContent = @"[{""Name"":""Tom""}]";
+            var expectedBodyContent = @"[{""Name"":""tom""}]";
 
             responseMessage.StatusCode.Should().Be(expectedResponseCode);
             responseBodyContent.Result.Should().Be(expectedBodyContent);
@@ -95,9 +95,9 @@ namespace WebApplicationTests
         public void UpdateUserReturnsCorrectResponseMessage()
         {
             var controller = new Controller();
-            var userToUpdate = new User("Mary");
-            controller.AddUser(userToUpdate);
-            var responseMessage = controller.UpdateUser(userToUpdate, "Ted");
+            var user = new User("Mary");
+            controller.AddUser(user);
+            var responseMessage = controller.UpdateUser(user, "Ted");
             var responseBodyContent = responseMessage.Content.ReadAsStringAsync();
 
             var expectedResponseCode = HttpStatusCode.OK;

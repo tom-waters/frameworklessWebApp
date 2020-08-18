@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design.Serialization;
 using System.Linq;
 using WebApplication.Domain;
 
@@ -7,7 +8,7 @@ namespace WebApplication.Data
 {
     public class Database : IDatabase
     {
-        private const string PowerUser = "Tom";
+        private const string PowerUser = "tom";
         private List<User> _allUsers = new List<User>();
 
         public Database()
@@ -22,8 +23,7 @@ namespace WebApplication.Data
         
         public Tuple<bool, string> AddUser(User user)
         {
-            var matchingEntries = _allUsers.Any(entry => entry.Name == user.Name);
-            if (!matchingEntries)
+            if (!HasMatchingUser(user))
             {
                 _allUsers.Add(user);
                 return new Tuple<bool, string>(true, "User added");
@@ -33,22 +33,44 @@ namespace WebApplication.Data
 
         public Tuple<bool, string> UpdateUser(User user, string newName)
         {
-            if (_allUsers.Contains(user))
+            if (IsPowerUser(user))
             {
-                _allUsers.First(entry => entry == user).Name = newName;
-                return new Tuple<bool, string>(true, "User updates");
+                return new Tuple<bool, string>(false, "Poweruser cannot be modified");
             }
-            return new Tuple<bool, string>(false, "User doesn't exist");
+            if (!HasMatchingUser(user))
+            {
+                return new Tuple<bool, string>(false, "User doesn't exist");
+            }
+            var userToUpdate = FindMatchingUser(user).Name = newName;
+            return new Tuple<bool, string>(true, "User updated");
         }
 
         public Tuple<bool, string> DeleteUser(User user)
         {
-            if (user.Name != PowerUser && _allUsers.Contains(user))
+            if (IsPowerUser(user))
             {
-                _allUsers.Remove(user);
-                return new Tuple<bool, string>(true, "User deleted");
+                return new Tuple<bool, string>(false, "Cannot removed Poweruser");
             }
-            return new Tuple<bool, string>(false, "User doesn't exist");
+            if (!HasMatchingUser(user))
+            {
+                return new Tuple<bool, string>(false, "User doesn't exist");
+            }
+            _allUsers.Remove(FindMatchingUser(user));
+            return new Tuple<bool, string>(true, "User deleted");
+        }
+
+        private User FindMatchingUser(User user)
+        {
+            return _allUsers.FirstOrDefault(entry => entry.Name == user.Name);
+        }
+
+        private bool HasMatchingUser(User user)
+        {
+            return _allUsers.Any(entry => entry.Name == user.Name);
+        } 
+        private bool IsPowerUser(User user)
+        {
+            return user.Name == PowerUser;
         }
     }
 }
