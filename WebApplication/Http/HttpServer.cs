@@ -7,7 +7,7 @@ namespace WebApplication.Http
         public HttpListener CreateServer()
         {
             var server = new HttpListener();
-            server.Prefixes.Add("http://localhost:8080/");
+            server.Prefixes.Add("http://*:8080/");
             return server;
         }
     }

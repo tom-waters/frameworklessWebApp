@@ -24,6 +24,7 @@ namespace WebApplication
             var server = new HttpServer().CreateServer();
             var controller = new Controller();
             server.Start();
+            Console.WriteLine("Server running...");
             while (true)
             {
                 var context = server.GetContext();
