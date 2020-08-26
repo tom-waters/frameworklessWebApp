@@ -18,5 +18,4 @@ RUN dotnet publish -c Release -o out
 FROM mcr.microsoft.com/dotnet/core/runtime:3.1
 WORKDIR /app
 COPY --from=publish /app/out ./
-RUN ls
 ENTRYPOINT ["dotnet", "WebApplication.dll"]

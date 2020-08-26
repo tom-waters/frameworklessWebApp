@@ -104,3 +104,5 @@
 /Users/tom.waters/Programming/Katas/Frameworkless/WebApplicationTests/bin/Debug/netcoreapp3.1/System.Security.Cryptography.ProtectedData.dll
 /Users/tom.waters/Programming/Katas/Frameworkless/WebApplicationTests/bin/Debug/netcoreapp3.1/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
 /Users/tom.waters/Programming/Katas/Frameworkless/WebApplicationTests/bin/Debug/netcoreapp3.1/FluentAssertions.Json.dll
+/Users/tom.waters/Programming/Katas/Frameworkless/WebApplicationTests/obj/Debug/netcoreapp3.1/WebApplicationTests.csproj.CoreCompileInputs.cache
+/Users/tom.waters/Programming/Katas/Frameworkless/WebApplicationTests/obj/Debug/netcoreapp3.1/WebApplicationTests.genruntimeconfig.cache
