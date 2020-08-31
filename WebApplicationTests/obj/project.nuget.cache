@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "sse6l+zpyHJFUeqJ0S2ZhQw0BTBnHq29IayUooh0ti9wmAtJ7oZzaFPn0cxIPwO7CX9XC3lM6U8I7P7OZYfuvg==",
+  "dgSpecHash": "Gehc99q1C5YgpocJNyTiGO1FMSEQmYoslcqXyFOniSfiOgHiHCNcF3iqT+PM2eLEHNk16AdtUGD8Pw8BOxHtZw==",
   "success": true,
-  "projectFilePath": "/Users/tom.waters/Programming/Katas/Frameworkless/WebApplicationTests/WebApplicationTests.csproj",
+  "projectFilePath": "/Users/tom.waters/Dev/Katas/Frameworkless/WebApplicationTests/WebApplicationTests.csproj",
   "expectedPackageFiles": [
     "/Users/tom.waters/.nuget/packages/castle.core/4.4.0/castle.core.4.4.0.nupkg.sha512",
     "/Users/tom.waters/.nuget/packages/coverlet.collector/1.0.1/coverlet.collector.1.0.1.nupkg.sha512",

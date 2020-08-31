@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6t0wGjhIQIWAPYT44hQOq8RmB1HmrQezwZ1VG4XcHgy8vkmt36dk9domrnA1Hb0GvhHdgN+I1UC4y6pDDYo0hw==",
+  "dgSpecHash": "6Q8pvXgfeGfy1evMZfSXjtVhtB6ZLNbkUEpLQwR8yk9nCY43xZHHwvoVa/rmbF7AOtg6Lo7Ir08hcJ0TvBX0Eg==",
   "success": true,
-  "projectFilePath": "/Users/tom.waters/Programming/Katas/Frameworkless/WebApplication/WebApplication.csproj",
+  "projectFilePath": "/Users/tom.waters/Dev/Katas/Frameworkless/WebApplication/WebApplication.csproj",
   "expectedPackageFiles": [
     "/Users/tom.waters/.nuget/packages/microsoft.csharp/4.0.1/microsoft.csharp.4.0.1.nupkg.sha512",
     "/Users/tom.waters/.nuget/packages/microsoft.netcore.platforms/1.0.1/microsoft.netcore.platforms.1.0.1.nupkg.sha512",

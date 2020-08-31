@@ -1,7 +1,6 @@
 using System;
-using Microsoft.Extensions.Logging;
 
-namespace WebApplication
+namespace WebApplication.Domain
 {
     public static class TimeStamp
     {

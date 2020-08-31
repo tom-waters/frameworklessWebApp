@@ -2,6 +2,7 @@ using System;
 using Microsoft.VisualStudio.TestPlatform.ObjectModel;
 using Microsoft.VisualStudio.TestPlatform.TestHost;
 using WebApplication;
+using WebApplication.Domain;
 using Xunit;
 
 namespace WebApplicationTests

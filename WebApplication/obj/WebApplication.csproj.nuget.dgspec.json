@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/tom.waters/Programming/Katas/Frameworkless/WebApplication/WebApplication.csproj": {}
+    "/Users/tom.waters/Dev/Katas/Frameworkless/WebApplication/WebApplication.csproj": {}
   },
   "projects": {
-    "/Users/tom.waters/Programming/Katas/Frameworkless/WebApplication/WebApplication.csproj": {
+    "/Users/tom.waters/Dev/Katas/Frameworkless/WebApplication/WebApplication.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/tom.waters/Programming/Katas/Frameworkless/WebApplication/WebApplication.csproj",
+        "projectUniqueName": "/Users/tom.waters/Dev/Katas/Frameworkless/WebApplication/WebApplication.csproj",
         "projectName": "WebApplication",
-        "projectPath": "/Users/tom.waters/Programming/Katas/Frameworkless/WebApplication/WebApplication.csproj",
+        "projectPath": "/Users/tom.waters/Dev/Katas/Frameworkless/WebApplication/WebApplication.csproj",
         "packagesPath": "/Users/tom.waters/.nuget/packages/",
-        "outputPath": "/Users/tom.waters/Programming/Katas/Frameworkless/WebApplication/obj/",
+        "outputPath": "/Users/tom.waters/Dev/Katas/Frameworkless/WebApplication/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/tom.waters/.nuget/NuGet/NuGet.Config"
